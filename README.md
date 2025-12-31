@@ -11,6 +11,7 @@ BookADoc streamlines the process of finding and booking medical appointments. Pa
 The platform handles the entire appointment lifecycle—from discovery and booking to payment confirmation and follow-up communication—making healthcare more accessible and efficient for everyone involved.
 
 ### Demo
+[![Watch Demo on YouTube](https://img.shields.io/badge/▶️_Watch_Demo-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/6QRotciGyS0)
 
 [![Watch Demo on YouTube](https://img.shields.io/badge/▶️_Watch_Demo-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/6QRotciGyS0)
 

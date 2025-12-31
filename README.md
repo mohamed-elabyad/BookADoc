@@ -12,6 +12,7 @@ The platform handles the entire appointment lifecycle—from discovery and booki
 
 ### Demo
 
+[![Watch Demo on YouTube](https://img.shields.io/badge/▶️_Watch_Demo-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/6QRotciGyS0)
 
 ## Key Features
 

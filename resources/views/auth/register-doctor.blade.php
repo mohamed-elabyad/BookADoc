@@ -1,6 +1,6 @@
 <x-layout>
 
-    <h1 class="my-16 text-center text-4xl font-medium text-white">
+    <h1 class="my-16 text-center text-2xl md:text-4xl font-medium text-white">
         Applay as a Doctor
     </h1>
 
@@ -39,7 +39,7 @@
                 <x-input name="address" id="address" placeholder='Address...' :required="true" :value="old('address')" />
             </div>
 
-            <div class="grid grid-cols-2 gap-15 mb-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-15 mb-8">
                 <div>
                     <x-label for="phone" :required="true">
                         Phone
@@ -103,7 +103,7 @@
 
             <div class="mb-8">
                 <x-label for="bio">Bio</x-label>
-                <textarea name="bio" id="bio" cols="85" :value="old('bio')" placeholder="write about your career..."></textarea>
+                <textarea name="bio" id="bio" class="w-full rounded-lg border-gray-300" rows="4" :value="old('bio')" placeholder="write about your career..."></textarea>
             </div>
 
             <div class="mb-8">

@@ -47,7 +47,7 @@
                                 Available Appointments
                             </label>
 
-                            <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3">
+                            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
                                 <template x-for="slot in availableSlots" :key="slot.value">
                                     <div>
                                         <input type="radio" :id="'time_' + slot.value" name="time"
@@ -90,7 +90,7 @@
                                 Select Payment Method
                             </label>
 
-                            <div class="grid grid-cols-2 gap-4">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <!-- Cash Payment -->
                                 <div>
                                     <input type="radio" id="payment_cash" name="payment_method" value="cash"
@@ -171,13 +171,13 @@
                         @enderror
 
                         <div
-                            class="flex items-center justify-between w-full pt-6 mt-6 border-t border-gray-200 space-x-4">
+                            class="flex flex-col md:flex-row items-center justify-between w-full pt-6 mt-6 border-t border-gray-200 gap-4">
                             <x-link-button :href="route('doctors.index')">
                                 Home
                             </x-link-button>
 
                             <button type="submit" :disabled="!selectedDate || !selectedTime || !paymentMethod"
-                                class="px-6 py-2 text-sm font-medium text-white bg-indigo-600 rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors duration-200">
+                                class="w-full md:w-auto px-6 py-2 text-sm font-medium text-white bg-indigo-600 rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors duration-200">
                                 Book Appointment
                             </button>
                         </div>

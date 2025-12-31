@@ -15,10 +15,10 @@
 
         <a href="{{ route('chat.show', $conversation) }}" class="block mb-4">
             <x-card class="hover:shadow-xl transition-shadow duration-200 cursor-pointer">
-                <div class="flex items-start justify-between w-full gap-4">
+                <div class="flex flex-col md:flex-row items-start justify-between w-full gap-4">
 
                     {{-- الصورة والاسم (أقصى الشمال) --}}
-                    <div class="flex items-center gap-3 flex-shrink-0 min-w-0">
+                    <div class="flex items-center gap-3 flex-shrink-0 min-w-0 w-full md:w-auto">
                         @if (auth()->user()->role->value === 'user' && $other_user->doctor)
                             <x-img :doctor="$other_user->doctor" class="!w-17 !h-17 !m-0" />
                         @endif
@@ -35,7 +35,7 @@
                         </div>
                     </div>
 
-                    <div class="pt-5 pl-15">
+                    <div class="pt-0 md:pt-5 pl-0 md:pl-15 w-full md:w-auto">
 
                         @if ($latest_message)
                             <p class="text-sm text-slate-600 truncate">
@@ -46,7 +46,7 @@
                         @endif
                     </div>
                     {{-- الوقت وعدد الرسائل (أقصى اليمين) --}}
-                    <div class="flex flex-col items-end gap-2 flex-shrink-0 ml-auto">
+                    <div class="flex flex-row md:flex-col items-center md:items-end gap-2 flex-shrink-0 ml-auto">
                         @if ($latest_message)
                             <span class="text-xs text-slate-500 whitespace-nowrap">
                                 {{ $latest_message->created_at->diffForHumans() }}

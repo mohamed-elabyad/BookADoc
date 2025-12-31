@@ -6,17 +6,17 @@
     @endphp
 
     <div x-data="chatApp({{ $conversation->id }}, {{ auth()->id() }})" x-init="init()" class="flex flex-col max-w-4xl mx-auto mb-8"
-        style="height: calc(100vh - 250px); min-height: 500px;">
+        style="height: calc(100vh - 200px); min-height: 400px;">
 
         {{-- Header --}}
-        <x-card class="mb-4 rounded-b-none flex-shrink-0 !mx-6">
+        <x-card class="mb-4 rounded-b-none flex-shrink-0 !mx-0 md:!mx-6">
             <div class="flex items-center gap-4">
                 @if (auth()->user()->role->value === 'user' && $other_user->doctor)
-                    <x-img :doctor="$other_user->doctor" class="!w-20 !h-20 !m-0" />
+                    <x-img :doctor="$other_user->doctor" class="!w-16 md:!w-20 !h-16 md:!h-20 !m-0" />
                 @endif
 
                 <div>
-                    <h2 class="text-xl font-semibold text-slate-800">
+                    <h2 class="text-lg md:text-xl font-semibold text-slate-800">
                         @if (auth()->user()->role->value === 'user')
                             Dr. {{ $other_user->name }}
                         @else
@@ -28,22 +28,22 @@
         </x-card>
 
         {{-- Messages Container --}}
-        <x-card class="flex-1 flex flex-col overflow-hidden rounded-t-none rounded-b-none mb-4 p-0 !mx-6 min-h-0">
+        <x-card class="flex-1 flex flex-col overflow-hidden rounded-t-none rounded-b-none mb-4 p-0 !mx-0 md:!mx-6 min-h-0">
             <div x-ref="messagesContainer" class="flex-1 min-h-0 overflow-y-auto p-4 space-y-4 w-full">
 
                 {{-- الرسائل الموجودة --}}
                 @foreach ($messages as $message)
                     <div class="flex {{ $message->sender_id === auth()->id() ? 'justify-end' : 'justify-start' }}">
                         <div
-                            class="max-w-[70%] flex gap-2 items-end {{ $message->sender_id === auth()->id() ? 'flex-row-reverse' : 'flex-row' }}">
+                            class="max-w-[85%] md:max-w-[70%] flex gap-2 items-end {{ $message->sender_id === auth()->id() ? 'flex-row-reverse' : 'flex-row' }}">
 
                             @if ($message->sender_id !== auth()->id() && auth()->user()->role->value === 'user' && $message->sender->doctor)
-                                <x-img :doctor="$message->sender->doctor" class="!w-10 !h-10 !m-0 flex-shrink-0" />
+                                <x-img :doctor="$message->sender->doctor" class="!w-8 md:!w-10 !h-8 md:!h-10 !m-0 flex-shrink-0" />
                             @endif
 
                             <div class="flex flex-col">
                                 <div
-                                    class="px-4 py-2 rounded-2xl {{ $message->sender_id === auth()->id() ? 'bg-purple-600 text-white' : 'bg-gray-200 text-slate-800' }}">
+                                    class="px-3 md:px-4 py-2 rounded-2xl {{ $message->sender_id === auth()->id() ? 'bg-purple-600 text-white' : 'bg-gray-200 text-slate-800' }}">
                                     <p class="text-sm break-words"
                                         style="overflow-wrap: anywhere; word-break: break-word;">
                                         {{ $message->message }}
@@ -62,16 +62,16 @@
                 <template x-for="(message, index) in newMessages"
                     :key="`msg-${message.id || index}-${message.created_at || Date.now()}`">
                     <div class="flex" :class="message.sender_id === currentUserId ? 'justify-end' : 'justify-start'">
-                        <div class="max-w-[70%] flex gap-2 items-end"
+                        <div class="max-w-[85%] md:max-w-[70%] flex gap-2 items-end"
                             :class="message.sender_id === currentUserId ? 'flex-row-reverse' : 'flex-row'">
 
                             <template x-if="message.sender_id !== currentUserId && message.sender_image">
                                 <img :src="message.sender_image" :alt="message.sender_name"
-                                    class="w-10 h-10 rounded-full object-cover flex-shrink-0">
+                                    class="w-8 md:w-10 h-8 md:h-10 rounded-full object-cover flex-shrink-0">
                             </template>
 
                             <div class="flex flex-col">
-                                <div class="px-4 py-2 rounded-2xl"
+                                <div class="px-3 md:px-4 py-2 rounded-2xl"
                                     :class="message.sender_id === currentUserId ? 'bg-purple-600 text-white' :
                                         'bg-gray-200 text-slate-800'">
                                     <p class="text-sm break-words"
@@ -89,7 +89,7 @@
         </x-card>
 
         {{-- Input --}}
-        <x-card class="rounded-t-none p-0 flex-shrink-0 !mx-6">
+        <x-card class="rounded-t-none p-0 flex-shrink-0 !mx-0 md:!mx-6">
             <form @submit.prevent="sendMessage()" class="flex gap-2 p-4">
                 <input type="text" x-model="messageText" placeholder="Type a message..."
                     class="flex-1 rounded-lg border-0 py-2 px-4 text-sm text-gray-700 placeholder-gray-400 ring-1 ring-gray-300 focus:ring-2 focus:ring-purple-500 focus:ring-offset-0 shadow-sm"

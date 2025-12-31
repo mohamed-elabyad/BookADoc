@@ -1,4 +1,4 @@
-<x-card class="w-[348px] h-[350px]">
+<x-card class="w-full md:w-[348px] h-[350px]">
 
 
     <x-img :doctor="$doctor" />

@@ -24,7 +24,7 @@ class DoctorController extends Controller
                     ->where('active', true)
                     ->filter($filters)
                     ->latest()
-                    ->paginate(20);
+                    ->paginate(12);
             });
 
         return view('doctors.index', ['doctors' => $doctors]);

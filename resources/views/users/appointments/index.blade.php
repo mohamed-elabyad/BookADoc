@@ -4,8 +4,8 @@
 
     <div class="grid grid-cols-1 {{ count($appointments) > 1 ? 'md:grid-cols-2' : '' }} gap-6 max-w-7xl mx-auto px-4 mb-8">
         @forelse ($appointments as $appointment)
-            <div class="bg-white rounded-2xl shadow-lg p-6 border border-slate-200 flex flex-col h-[500px]{{ count($appointments) === 1 ? 'max-w-2xl mx-auto' : '' }}">
-                <div class="grid grid-cols-2 gap-6 flex-grow">
+            <div class="bg-white rounded-2xl shadow-lg p-6 border border-slate-200 flex flex-col h-auto md:h-[500px] {{ count($appointments) === 1 ? 'max-w-2xl mx-auto' : '' }}">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 flex-grow">
 
                     <div class="flex flex-col items-center">
                         <x-img :doctor="$appointment->doctor" class="w-24 h-24 rounded-full object-cover border shadow mb-3" />
@@ -57,7 +57,7 @@
 
                 </div>
 
-                <div class="flex gap-2 mt-auto pt-4 border-t border-slate-200">
+                <div class="flex flex-col md:flex-row gap-2 mt-auto pt-4 border-t border-slate-200">
                     @if ($appointment->payment && $appointment->payment->payment_method->value === 'online' && $appointment->payment->payment_status->value !== 'confirmed')
                         <form action="{{ route('stripe.checkout', $appointment) }}" method="POST" class="flex-1">
                             @csrf

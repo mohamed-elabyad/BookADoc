@@ -1,6 +1,6 @@
 <x-layout>
 
-    <h1 class="my-16 text-center text-4xl font-medium text-white">
+    <h1 class="my-16 text-center text-2xl md:text-4xl font-medium text-white">
         Sign in to your Account
     </h1>
 

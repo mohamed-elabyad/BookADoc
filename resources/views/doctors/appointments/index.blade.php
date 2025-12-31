@@ -1,7 +1,7 @@
 <x-layout>
     <div>
         @forelse ($appointments as $appointment)
-            <x-appoint-card class="grid-cols-1 place-items-center md:grid-cols-5 sm:grid-cols-2"
+            <x-appoint-card class="grid-cols-1 place-items-center sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5"
             x-data="{
                 status: '{{ $appointment->status }}',
                 paymentStatus: '{{ $appointment->payment?->payment_status?->value ?? 'pending' }}',
@@ -157,7 +157,7 @@
                     @endif
                 </div>
 
-                <div class="ml-auto flex flex-col gap-2">
+                <div class="ml-auto flex flex-col gap-2 w-full md:w-auto">
                     @if(in_array($appointment->status->value, ['confirmed', 'completed']))
                         <button
                             onclick="startChat({{ $appointment->id }})"
@@ -168,7 +168,7 @@
                     <form action="{{ route('doctor.appointments.destroy', $appointment) }}" method="POST">
                         @csrf
                         @method("DELETE")
-                        <x-button class="bg-red-400 text-white px-4 py-2 rounded-lg shadow hover:bg-red-600 focus:ring-red-500 transition-all">
+                        <x-button class="w-full bg-red-400 text-white px-4 py-2 rounded-lg shadow hover:bg-red-600 focus:ring-red-500 transition-all">
                             Cancel
                         </x-button>
                     </form>

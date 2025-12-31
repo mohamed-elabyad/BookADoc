@@ -15,16 +15,16 @@
 
             <div>
                 <p class="text-lg text-slate-500 font-bold mt-6 mb-4">More Info:</p>
-                <div class="flex w-full px-6 mb-6 justify-between">
+                <div class="flex flex-col md:flex-row w-full px-6 mb-6 md:justify-between gap-4">
                     <p class="flex-shrink-0">{{$doctor->phone}}</p>
-                    <p class="w-1/2">
+                    <p class="md:w-1/2">
                         <x-address :address="$doctor->address" />
                     </p>
                 </div>
             </div>
 
-            <div class="grid grid-cols-2 gap-10 mb-6">
-                <p class="col-span-2 text-lg text-slate-500 font-bold">Working Hours</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mb-6">
+                <p class="col-span-full text-lg text-slate-500 font-bold">Working Hours</p>
                 <p>Works From: {{$doctor->work_from->format('g:i A')}}</p>
                 <p>To: {{$doctor->work_to->format('g:i A')}}</p>
             </div>
@@ -38,7 +38,7 @@
                 </div>
             </div>
 
-            <div class="flex items-center justify-between p-3 pt-6 border-t w-full border-gray-200">
+            <div class="flex flex-col md:flex-row items-center justify-between p-3 pt-6 border-t w-full border-gray-200 gap-3">
                 <x-link-button :href="route('doctors.index')">
                     Home
                 </x-link-button>

@@ -29,7 +29,7 @@
         @forelse ($doctors as $doctor)
             <x-doctor-card :$doctor />
         @empty
-        <div class="text-center text-white font-bold border col-span-2 border-dashed mx-auto p-4 w-64">
+        <div class="text-center text-white font-bold border col-span-full border-dashed mx-auto p-4 w-64">
             No Doctors Available
         </div>
         @endforelse

@@ -1,6 +1,6 @@
 <x-layout>
 
-    <h1 class="my-16 text-center text-4xl font-medium text-white">
+    <h1 class="my-16 text-center text-2xl md:text-4xl font-medium text-white">
         Update your Profile
     </h1>
 
@@ -21,7 +21,7 @@
                 <x-input name="address" id="address" :value="old('address', $doctor->address)" :required="true" />
             </div>
 
-            <div class="grid grid-cols-2 gap-15 mb-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-15 mb-8">
                 <div>
                     <x-label for="phone">
                         Phone
@@ -35,7 +35,7 @@
                 </div>
             </div>
 
-            <div class="grid grid-cols-2 gap-15 mb-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-15 mb-8">
                 <div>
                     <x-label for='work_from'>Work From</x-label>
                     <select name="work_from" id="work_from" class="w-full rounded-lg border-gray-300">
@@ -86,7 +86,7 @@
             </div>
             <div class="mb-8">
                 <x-label for="bio">Bio</x-label>
-                <textarea name="bio" id="bio" cols="85" :value="old('bio', $doctor->bio)"
+                <textarea name="bio" id="bio" class="w-full rounded-lg border-gray-300" rows="4" :value="old('bio', $doctor->bio)"
                     placeholder="write about your career..."></textarea>
                 <div>
                     @error('bio')

@@ -70,7 +70,10 @@ class Doctor extends Model
             });
         })
             ->when($filters['address'] ?? null, function ($query, $address) {
-                $query->where('address', 'LIKE', '%' . $address . '%');
+                $query->whereRaw(
+                    "REPLACE(REPLACE(REPLACE(address, CHAR(10), ' '), CHAR(13), ' '), '  ', ' ') LIKE ?", 
+                    ['%' . $address . '%']
+            );            
             })
             ->when($filters['specialty'] ?? null, function ($query, $specialty) {
                 $query->where('specialty', $specialty);
